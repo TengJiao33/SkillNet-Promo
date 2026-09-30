@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SkillNet · promotional storyboard</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#e9efeb;color:#14253b;font-family:Arial,Helvetica,sans-serif;overflow:hidden}
+#viewport{width:min(96vw,calc(88vh * 16 / 9));aspect-ratio:16/9;position:relative;overflow:hidden;box-shadow:0 25px 90px #173b2a2e}#stage{position:absolute;width:1600px;height:900px;transform-origin:top left;overflow:hidden;background:radial-gradient(circle at 72% 56%,#e4f4e9 0,#f7fbf8 38%,#fff 74%)}
+body.still{display:block;min-height:0;background:#fff}body.still #viewport{width:100vw;height:100vh;aspect-ratio:auto;box-shadow:none}body.still #controls{display:none}
+#sphere{position:absolute;right:15px;top:80px;width:840px;height:760px;border-radius:48%;background:radial-gradient(circle at 34% 23%,#fff 5%,#f9fdfa 38%,#e1f2e8 100%);border:1px solid #dceee3;box-shadow:inset 30px 23px 90px #fff,inset -32px -40px 80px #93c9a326,0 38px 90px #145f3314;opacity:0}#network{position:absolute;inset:0;width:1600px;height:900px}#glass{position:absolute;right:48px;top:130px;width:300px;height:625px;border-radius:48% 36% 43% 48%;transform:rotate(12deg);background:linear-gradient(120deg,#ffffff0c,#ffffff87 55%,#ffffff18);border:1px solid #ffffffb0;backdrop-filter:blur(3px);box-shadow:inset 20px 15px 40px #ffffff9b;pointer-events:none;opacity:0}
+.scene{position:absolute;inset:0;opacity:0;pointer-events:none;z-index:2}.scene>div{position:absolute}.intro,.outro{z-index:5}.center{inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}.logo{width:615px;height:auto}.slogan{font:38px/1.2 Georgia,'Times New Roman',serif;color:#435467;margin-top:27px}.url{color:#008e62;font-size:29px;font-weight:700;margin-top:25px}.line{width:128px;height:6px;background:#079f6d;border-radius:10px;margin-top:27px}
+.copy{left:88px;top:85px;width:710px}.kicker{font-size:24px;letter-spacing:.12em;text-transform:uppercase;font-weight:750;color:#048a5e;margin-bottom:17px}.title{font-size:80px;line-height:1.03;letter-spacing:-.055em;margin:0;font-weight:760}.title.serif{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.045em}.sub{font:34px/1.22 Georgia,'Times New Roman',serif;color:#435468;margin:23px 0 0}.green{color:#079e6d}.card{background:#fffffff2;border:1px solid #c8e0d1;border-radius:24px;box-shadow:0 22px 65px #246a4427,0 3px 12px #185c3210;backdrop-filter:blur(8px)}.tag{font-size:21px;font-weight:750;color:#087d58;letter-spacing:.06em;text-transform:uppercase}
+.skillnet .title{font-size:76px}.skillnet .sub{max-width:760px}.skillnet .formation{left:88px;top:386px;width:1424px;height:395px;display:flex;align-items:center;gap:16px}.formation .step{position:relative;height:395px;padding:24px 27px}.formation .step.sources{width:290px}.formation .step.quality{width:320px}.formation .step.graph{width:654px;background:#ffffff46;border:1px solid #9dccae;backdrop-filter:blur(1.2px)}.formation .arrow{font-size:48px;font-weight:300;color:#0a9c6c}.formation .step-no{font-size:20px;font-weight:800;letter-spacing:.09em;color:#0b8a62}.formation h2{font-size:33px;letter-spacing:-.04em;margin:10px 0 15px}.formation .skill-doc{height:66px;margin:10px 0;padding:11px 16px;border-radius:10px;border:1px solid #c2dccc;background:#f8fcf9;box-shadow:0 4px 11px #174d2d0b}.formation .skill-doc b{display:block;font:18px Consolas,'Courier New',monospace;color:#0a9265}.formation .skill-doc span{display:block;font-size:18px;color:#40586b;margin-top:3px}.formation .output-skill{font:21px Consolas,'Courier New',monospace;color:#087f5b;background:#e7f7ed;border:1px solid #b1ddc3;border-radius:9px;padding:10px 13px;margin-bottom:7px}.formation .check{display:flex;gap:10px;align-items:center;border-bottom:1px solid #d9e9df;padding:8px 0;font-size:22px;font-weight:650}.formation .check b{color:#0c9b6e;font-size:29px}.formation .graph h2{margin-bottom:6px}.formation .graph .relations{position:absolute;bottom:27px;left:27px;display:flex;gap:12px}.formation .graph .relations span{padding:9px 14px;background:#fffffff0;border:1px solid #b4ddc6;border-radius:99px;color:#087952;font-size:18px;font-weight:700}
+.gym .copy{left:890px;top:98px;width:620px}.gym .sub{max-width:590px}.gym .benchmark-list{left:890px;top:453px;width:620px;display:grid;gap:12px}.gym .benchmark-list .item{padding:18px 25px;display:flex;align-items:center;gap:25px}.gym .benchmark-list b{font-size:30px}.gym .benchmark-list em{font:23px Georgia,'Times New Roman',serif;color:#4b5c6a;font-style:normal}.gym .benchmark-list .number{font-size:20px;font-weight:800;color:#0a9467}.gym .figure{left:86px;top:178px;width:750px;height:540px;padding:17px;overflow:hidden}.gym .figure img{width:715px;height:auto;display:block}
+.fabric .copy{width:630px}.fabric .sub{max-width:570px}.fabric .route{left:88px;top:460px;width:560px;padding:26px 30px}.fabric .route .task{font-size:29px;font-weight:740;margin:14px 0 20px}.fabric .route .path{display:flex;align-items:center;gap:12px;color:#078b61;font-size:24px;font-weight:750}.fabric .route .path i{font-style:normal;color:#89b5a0}.fabric .figure{left:700px;top:235px;width:810px;height:350px;overflow:hidden}.fabric .figure img{position:absolute;width:1325px;height:auto;left:-507px;top:-316px}
+.access .copy{left:943px;top:129px;width:550px}.access .title{font-size:76px}.access .sub{max-width:525px}.access .access-links{left:943px;top:570px;display:grid;gap:16px;font-size:25px;font-weight:720;color:#057e58}.access .access-links span{display:block}.terminal{left:82px;right:auto;top:118px;width:817px;height:620px;overflow:hidden;border-radius:19px;border:1px solid #cbd9d0;background:#fbfdfb;box-shadow:0 30px 75px #174b302c,0 7px 18px #1b5f3620}.terminal-head{height:55px;background:linear-gradient(#f7f8f7,#e8efea);border-bottom:1px solid #cddbd2;display:flex;align-items:center;gap:10px;padding:0 20px}.dot{width:16px;height:16px;border-radius:50%}.dot.red{background:#fd6059}.dot.yellow{background:#fdbc2e}.dot.green-dot{background:#29c840}.terminal-name{margin-left:17px;color:#496255;font:20px Arial}.terminal-body{padding:24px 30px;font:22px/1.45 Consolas,'Courier New',monospace;color:#1a3427;white-space:nowrap}.terminal-body .prompt{color:#08885d;font-weight:700}.terminal-body .muted{color:#708576}.terminal-body .cmd{display:block}.terminal-body .result{margin:8px 0 19px 22px;padding:10px 14px;background:#ecf7ef;border-left:3px solid #32a474;color:#375c47}.terminal-body .result b{color:#0b825d}.terminal-body .colhead{font-size:19px;letter-spacing:.015em}.terminal-body .last{margin-top:8px}
+.figure-mark{display:none}.terminal-body .typed{white-space:pre}.terminal-body .caret{display:none;width:2px;height:23px;margin-left:1px;vertical-align:-4px;background:#079765;box-shadow:0 0 7px #07a36f;animation:blink .62s steps(1) infinite}.terminal-body .typing .caret,.terminal-body .ready .caret{display:inline-block}@keyframes blink{50%{opacity:0}}.outro .logo{width:660px}.outro .closing{font:33px Georgia,'Times New Roman',serif;color:#435467;margin-top:31px}
+#controls{width:min(96vw,calc(88vh * 16 / 9));display:flex;gap:16px;align-items:center;font:15px Arial;color:#263a4a}button{padding:10px 17px;border:1px solid #0a9f6c;border-radius:8px;background:#fff;color:#0a7252;font:inherit;cursor:pointer}input[type=range]{flex:1;accent-color:#0a9f6c}#timecode{min-width:94px;text-align:right}
+.formation .step.graph{background:#ffffffc9;backdrop-filter:blur(5px)}
+.formation .mini-graph{position:absolute;left:24px;top:112px;width:604px;height:205px;overflow:visible}
+.mini-graph .diagram-edge{fill:none;stroke:#0a9b6e;stroke-width:2.5}
+.mini-graph .diagram-edge.similar{stroke:#6b9e87;stroke-dasharray:7 6;stroke-width:2}
+.mini-graph .diagram-node rect{fill:#fff;stroke:#a6d5b8;stroke-width:1.5}
+.mini-graph .diagram-node text{fill:#1c4936;font:700 17px Arial,Helvetica,sans-serif}
+.mini-graph .diagram-node circle{fill:#0aab72}
+.formation .graph .relations{bottom:23px}
+.formation .graph .relations span:before{content:'';display:inline-block;width:20px;border-top:2px solid #0a9b6e;vertical-align:5px;margin-right:9px}
+.formation .graph .relations span:first-child:before{border-color:#6b9e87;border-top-style:dashed}
+.gym .gym-demo{left:86px;top:178px;width:750px;height:540px;padding:28px 30px;background:#ffffffed}
+.gym-demo .demo-top{display:flex;justify-content:space-between;color:#087d58;font-size:19px;font-weight:800;letter-spacing:.085em}
+.gym-demo .demo-top span:last-child{color:#718d7d;font-size:16px}
+.gym-demo .demo-task{display:flex;align-items:center;gap:20px;height:80px;margin-top:25px;padding:0 21px;border-radius:13px;background:#ecf7ef;border:1px solid #bedfca}
+.gym-demo .demo-task b{color:#07875e;font-size:19px;letter-spacing:.06em}
+.gym-demo .demo-task span{font:26px/1.15 Georgia,'Times New Roman',serif;color:#1d3140}
+.gym-demo .skill-chain{display:flex;align-items:center;gap:13px;margin-top:28px;height:118px}
+.gym-demo .skill-block{width:182px;height:112px;flex:none;padding:20px 18px;background:#fff;border:1px solid #b7d9c5;border-radius:15px;box-shadow:0 9px 24px #23674614}
+.gym-demo .skill-block small{display:block;color:#0a976a;font-size:16px;font-weight:800;letter-spacing:.09em}
+.gym-demo .skill-block strong{display:block;font-size:23px;line-height:1.14;margin-top:11px;letter-spacing:-.035em}
+.gym-demo .join{font-size:38px;font-weight:300;color:#0aa575;width:29px;text-align:center}
+.gym-demo .kit-title{margin-top:28px;color:#087d58;font-size:19px;font-weight:800;letter-spacing:.09em}
+.gym-demo .test-kit{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.gym-demo .test-kit span{display:flex;align-items:center;justify-content:center;height:63px;border:1px solid #b8dac6;border-radius:11px;background:#f8fcf9;color:#25533e;font-size:18px;font-weight:700}
+.gym-demo .test-kit span:before{content:'✓';color:#0aa575;font-size:21px;margin-right:7px}
+.fabric .route{top:407px}
+.fabric .route .task{margin:11px 0 18px}
+.fabric .route-step{display:flex;align-items:center;gap:12px;min-height:56px;border-top:1px solid #dcebe1;color:#496456}
+.fabric .route-step b{width:155px;flex:none;color:#087d58;font-size:20px}
+.fabric .route-step span{font-size:19px;line-height:1.16}
+.fabric .wiki-detail{left:700px;top:612px;width:810px;height:196px;padding:19px 24px;background:#fffffff0}
+.wiki-detail .detail-kicker{color:#087d58;font-size:20px;font-weight:800;letter-spacing:.08em}
+.wiki-detail .detail-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:15px}
+.wiki-detail .detail-grid>div{padding-right:16px}.wiki-detail .detail-grid>div+div{padding-left:20px;border-left:1px solid #d0e6d7}
+.wiki-detail .detail-grid b{display:block;font-size:23px;color:#193e2c}.wiki-detail .detail-grid span{display:block;margin-top:5px;font:19px Georgia,'Times New Roman',serif;color:#55705e}
+.wiki-detail .detail-foot{margin-top:15px;padding-top:11px;border-top:1px solid #d0e6d7;color:#087f59;font-size:22px;font-weight:700}
+.access-links span:after{content:'';display:block;width:100%;height:3px;margin-top:4px;background:#0aa575;transform:scaleX(var(--underline,0));transform-origin:left}
+.outro .outro-head{left:86px;top:69px}.outro .outro-head .logo{width:360px}
+.outro .outro-main{left:86px;top:214px;width:1430px;display:flex;align-items:flex-start;gap:78px}
+.outro .outro-stat{width:650px;flex:none}.outro .outro-stat strong{display:block;color:#069b68;font:190px/.92 Georgia,'Times New Roman',serif;letter-spacing:-.085em;white-space:nowrap}.outro .outro-stat p{font:35px Georgia,'Times New Roman',serif;color:#385445;margin:18px 0 0}
+.outro .outro-main h1{font:67px/1.06 Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.045em;margin:17px 0 0;color:#172d3c}.outro .outro-main h1 em{color:#069b68;font-style:normal}
+.outro .outro-pillars{left:86px;top:630px;width:1430px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #afd4ba;border-bottom:1px solid #afd4ba}
+.outro .outro-pillars div{padding:19px 20px 20px 0}.outro .outro-pillars div+div{border-left:1px solid #c7e0cf;padding-left:28px}.outro .outro-pillars b{display:block;font-size:25px;color:#087b56}.outro .outro-pillars span{display:block;margin-top:7px;font:21px Georgia,'Times New Roman',serif;color:#4a6254}
+.outro .outro-cta{left:86px;top:790px;width:1430px;display:flex;justify-content:space-between;align-items:center;color:#28533d;font-size:29px}.outro .outro-cta b{color:#058b60}.outro .resources{font-size:21px;line-height:1.5;color:#527060;text-align:right}
+.endcard{z-index:7;background:radial-gradient(circle at 72% 44%,#e8f6ec 0,#f8fcf9 40%,#fff 78%)}.endcard .logo{width:615px}.endcard .slogan{margin-top:27px}.endcard .line{margin-top:27px}
+</style></head><body>
+<div id="viewport"><div id="stage"><div id="sphere"></div><canvas id="network" width="1600" height="900"></canvas><div id="glass"></div>
+<section class="scene intro" data-start="0" data-end="2150"><div class="center"><img class="logo" src="assets/brand/skillnet.png" alt="SkillNet"><div class="slogan">Making Skills Reusable,<br>Enabling Continuous Agent Evolution</div><div class="line"></div><div class="url">skillnet.openkg.cn</div></div></section>
+<section class="scene skillnet" data-start="6200" data-end="10200"><div class="copy"><div class="kicker">SkillNet</div><h1 class="title">Create. Evaluate.<br><span class="green">Connect.</span></h1><p class="sub">Scattered skills become a connected graph.</p></div><div class="formation"><div class="step sources card"><div class="step-no">01 / INPUTS</div><h2>Gather</h2><div class="skill-doc"><b>DOCUMENT</b><span>Guides &amp; papers</span></div><div class="skill-doc"><b>TRACE</b><span>Agent experience</span></div><div class="skill-doc"><b>REPOSITORY</b><span>Open-source code</span></div></div><div class="arrow">→</div><div class="step quality card"><div class="step-no">02 / QUALITY</div><h2>Create &amp; filter</h2><div class="output-skill">SKILL.md</div><div class="check"><b>✓</b> Safety</div><div class="check"><b>✓</b> Completeness</div><div class="check"><b>✓</b> Executability</div></div><div class="arrow">→</div><div class="step graph card"><div class="step-no">03 / RELATIONS</div><h2>SkillNet graph</h2>
+<svg class="mini-graph" viewBox="0 0 604 205" role="img" aria-label="Illustrative skill graph: similar PDF skills connect with related KPI and slide skills">
+<defs><marker id="graph-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 8 4 L 0 8 Z" fill="#0a9b6e"/></marker></defs>
+<path class="diagram-edge similar" d="M 88 64 L 88 138"/>
+<path class="diagram-edge" d="M 168 37 L 225 90" marker-end="url(#graph-arrow)"/>
+<path class="diagram-edge" d="M 168 165 L 225 110" marker-end="url(#graph-arrow)"/>
+<path class="diagram-edge" d="M 387 100 L 443 100" marker-end="url(#graph-arrow)"/>
+<g class="diagram-node"><rect x="8" y="10" width="160" height="54" rx="13"/><circle cx="31" cy="37" r="5"/><text x="94" y="43" text-anchor="middle">Read PDFs</text></g>
+<g class="diagram-node"><rect x="8" y="138" width="160" height="54" rx="13"/><circle cx="31" cy="165" r="5"/><text x="94" y="171" text-anchor="middle">Parse PDFs</text></g>
+<g class="diagram-node"><rect x="227" y="73" width="160" height="54" rx="13"/><circle cx="250" cy="100" r="5"/><text x="313" y="106" text-anchor="middle">Extract KPIs</text></g>
+<g class="diagram-node"><rect x="444" y="73" width="145" height="54" rx="13"/><circle cx="466" cy="100" r="5"/><text x="521" y="106" text-anchor="middle">Create slides</text></g>
+</svg><div class="relations"><span>similar_to</span><span>compose_with</span></div></div></div></section>
+<section class="scene gym" data-start="10000" data-end="14200"><div class="copy"><div class="kicker">SkillNet-Gym</div><h1 class="title serif">Can agents<br>use skills?</h1><p class="sub">Executable tasks, solutions, tests, and environments.</p></div><div class="benchmark-list"><div class="item card"><span class="number">01</span><b>Construct</b><em>build a reusable skill</em></div><div class="item card"><span class="number">02</span><b>Retrieve</b><em>choose for a task</em></div><div class="item card"><span class="number">03</span><b>Compose</b><em>coordinate several skills</em></div></div>
+<div class="gym-demo card"><div class="demo-top"><span>COMPOSITION BENCHMARK</span><span>EXAMPLE TASK</span></div><div class="demo-task"><b>TASK</b><span>From sequencing data to a nucleotide chart</span></div><div class="skill-chain"><div class="skill-block"><small>SKILL 01</small><strong>Call variants</strong></div><span class="join">→</span><div class="skill-block"><small>SKILL 02</small><strong>Build consensus</strong></div><span class="join">→</span><div class="skill-block"><small>SKILL 03</small><strong>Plot chart</strong></div></div><div class="kit-title">EXECUTABLE TEST KIT</div><div class="test-kit"><span>Instruction</span><span>Solution</span><span>Test script</span><span>Environment</span></div></div></section>
+<section class="scene fabric" data-start="14000" data-end="18200"><div class="copy"><div class="kicker">SkillNet-Fabric</div><h1 class="title serif">The right skills<br>for this task.</h1><p class="sub">The task and each skill's constraints shape the final choice.</p></div><div class="route card"><div class="tag">TASK</div><div class="task">Extract KPIs and create slides</div><div class="route-track"><div class="route-step"><b>01 · Localize</b><span>Hybrid search + graph expansion</span></div><div class="route-step"><b>02 · Organize</b><span>Task-specific Wiki</span></div><div class="route-step"><b>03 · Route</b><span>Selected skill package</span></div></div></div><div class="figure card"><img src="assets/paper/fabric-routing.png" alt="Technical report figure: task-specific Wiki and skill package"></div><div class="wiki-detail card"><div class="detail-kicker">INSIDE THE TASK WIKI</div><div class="detail-grid"><div><b>Skill profiles</b><span>Capabilities &amp; constraints</span></div><div><b>Relations</b><span>Scenario connections</span></div><div><b>Source SKILL.md</b><span>Original instructions</span></div></div><div class="detail-foot">Explorer selects skills with reasons.</div></div></section>
+<section class="scene access" data-start="18000" data-end="23000"><div class="copy"><div class="kicker">Open source · Python SDK</div><h1 class="title serif">Explore it.<br>Use it.</h1><p class="sub">Search, evaluate, analyze, and route skills from your own workflow.</p></div><div class="access-links"><span>skillnet.openkg.cn</span><span>github.com/zjunlp/SkillNet</span></div><div class="terminal"><div class="terminal-head"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green-dot"></span><span class="terminal-name">SkillNet — Terminal</span></div><div class="terminal-body">
+<span class="cmd"><span class="prompt">$</span> <span class="typed" data-text="pip install skillnet-ai"></span><span class="caret"></span></span>
+<span class="cmd last"><span class="prompt">$</span> <span class="typed" data-text="skillnet search &quot;pdf&quot; --mode vector"></span><span class="caret"></span></span>
+<div class="result"><b>Search Results</b><br><span class="colhead">Name · Category · Stars · Description</span><br><span class="colhead">Evaluation · URL</span></div>
+<span class="cmd"><span class="prompt">$</span> <span class="typed" data-text="skillnet analyze ./my_skills \" ></span><span class="caret"></span></span>
+<span class="cmd"><span class="typed" data-text="  --output-dir ./skillnet_index"></span><span class="caret"></span></span>
+<span class="cmd last"><span class="prompt">$</span> <span class="typed" data-text="skillnet route &quot;analyze my CSV&quot; \" ></span><span class="caret"></span></span>
+<span class="cmd"><span class="typed" data-text="  --index-dir ./skillnet_index"></span><span class="caret"></span></span>
+<div class="result">{ "skills": [ … ], "usage": { … } }</div>
+<span class="cmd ready"><span class="prompt">$</span> <span class="caret"></span></span>
+</div></div></section>
+<section class="scene outro" data-start="22800" data-end="24500"><div class="outro-head"><img class="logo" src="assets/brand/skillnet.png" alt="SkillNet"></div><div class="outro-main"><div class="outro-stat"><strong><span id="skill-count">500</span>K+</strong><p>GitHub skills indexed</p></div><h1>From isolated skills<br>to an evolving<br><em>ecosystem.</em></h1></div><div class="outro-pillars"><div><b>SkillNet</b><span>Create · Evaluate · Connect</span></div><div><b>SkillNet-Gym</b><span>Benchmark skill use</span></div><div><b>SkillNet-Fabric</b><span>Route for each task</span></div></div><div class="outro-cta"><span>Explore <b>skillnet.openkg.cn ↗</b></span><span class="resources">Code · github.com/zjunlp/SkillNet<br>Report · arxiv.org/abs/2603.04448</span></div></section>
+<section class="scene endcard" data-start="24300" data-end="27000"><div class="center"><img class="logo" src="assets/brand/skillnet.png" alt="SkillNet"><div class="slogan">Making Skills Reusable,<br>Enabling Continuous Agent Evolution</div><div class="line"></div><div class="url">skillnet.openkg.cn</div></div></section>
+</div></div><div id="controls"><button id="toggle" type="button">▶ Play</button><input id="scrub" type="range" min="0" max="26000" step="1" value="0" aria-label="Timeline"><span id="timecode">00.0 / 26.0</span></div><audio id="music" src="assets/audio/chill-upbeat-promo-cut.mp3" preload="auto"></audio>
+<script>
+const $=id=>document.getElementById(id),duration=26000,clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x)},mix=(a,b,p)=>a+(b-a)*p,ramp=(t,a,b)=>ease((t-a)/(b-a));
+const params=new URLSearchParams(location.search),initialFrame=Number(params.get('frame'))||0;if(params.has('still'))document.body.classList.add('still');
+const termEls=[...document.querySelectorAll('.terminal-body>span,.terminal-body>.result')];
+const termTimes=[[18150,18800],[18700,19500],[19400,19900],[19850,20550],[20400,20900],[20800,21550],[21400,21900],[21800,22350],[22300,22450]].map(([a,b])=>[18000+(a-18000)/1.5,18000+(b-18000)/1.5]);
+function animateTerminal(t){termEls.forEach((el,i)=>{const [a,b]=termTimes[i],q=ease((t-a)/(b-a));if(el.classList.contains('cmd')){el.style.opacity=q>0?'1':'0';if(el.classList.contains('ready'))return;const typed=el.querySelector('.typed'),full=typed.dataset.text;typed.textContent=full.slice(0,Math.floor(q*full.length));el.classList.toggle('typing',q>0&&q<1)}else{el.style.opacity=q.toFixed(3);el.style.filter=`blur(${((1-q)*5).toFixed(1)}px)`;el.style.translate=`0 ${((1-q)*10).toFixed(1)}px`}})}
+function animateGym(t){
+  const demo=document.querySelector('.gym-demo'),entry=ramp(t,10150,10330);
+  demo.style.opacity=entry.toFixed(3);demo.style.translate=`0 ${((1-entry)*22).toFixed(1)}px`;
+  const task=demo.querySelector('.demo-task'),taskQ=ramp(t,10160,10330);
+  task.style.clipPath=`inset(0 ${((1-taskQ)*100).toFixed(1)}% 0 0 round 13px)`;
+  demo.querySelectorAll('.skill-block').forEach((el,i)=>{const q=ramp(t,10400+i*340,10680+i*340);el.style.opacity=q.toFixed(3);el.style.transform=`translateY(${((1-q)*24).toFixed(1)}px) scale(${(.93+.07*q).toFixed(3)})`});
+  demo.querySelectorAll('.join').forEach((el,i)=>{el.style.opacity=ramp(t,10660+i*340,10870+i*340).toFixed(3)});
+  const kitTitle=demo.querySelector('.kit-title');kitTitle.style.opacity=ramp(t,11320,11570).toFixed(3);
+  demo.querySelectorAll('.test-kit span').forEach((el,i)=>{const q=ramp(t,11470+i*155,11690+i*155);el.style.opacity=q.toFixed(3);el.style.translate=`0 ${((1-q)*15).toFixed(1)}px`});
+  document.querySelectorAll('.gym .benchmark-list .item').forEach((el,i)=>{const focus=ramp(t,11350+i*480,11550+i*480)*(1-ramp(t,12000+i*480,12200+i*480));el.style.borderColor=focus>.1?'#86cb9f':'#c8e0d1';el.style.boxShadow=`0 15px 36px rgba(20,118,68,${(.08+.14*focus).toFixed(3)})`;el.style.transform=`translateX(${(-9*focus).toFixed(1)}px)`});
+}
+function animateFabric(t){
+  const figure=document.querySelector('.fabric .figure'),reveal=ramp(t,14200,14850);
+  figure.style.clipPath=`inset(0 ${((1-reveal)*100).toFixed(1)}% 0 0 round 24px)`;
+  figure.querySelector('img').style.transform=`scale(${mix(1.055,1,reveal).toFixed(3)})`;
+  document.querySelectorAll('.fabric .route-step').forEach((el,i)=>{const q=ramp(t,14350+i*435,14590+i*435);el.style.opacity=q.toFixed(3);el.style.translate=`${((1-q)*-17).toFixed(1)}px 0`;const focus=ramp(t,14500+i*435,14670+i*435)*(1-ramp(t,15200+i*435,15390+i*435));el.style.backgroundColor=`rgba(225,247,232,${(.65*focus).toFixed(3)})`});
+  const detail=document.querySelector('.fabric .wiki-detail'),detailQ=ramp(t,14900,15150);
+  detail.style.opacity=detailQ.toFixed(3);detail.style.translate=`0 ${((1-detailQ)*20).toFixed(1)}px`;
+  detail.querySelectorAll('.detail-grid>div').forEach((el,i)=>{const q=ramp(t,15000+i*230,15200+i*230);el.style.opacity=q.toFixed(3);el.style.translate=`0 ${((1-q)*13).toFixed(1)}px`});
+  detail.querySelector('.detail-foot').style.opacity=ramp(t,15700,16000).toFixed(3);
+}
+function animateEnding(t){
+  document.querySelectorAll('.access-links span').forEach((el,i)=>el.style.setProperty('--underline',ramp(t,21020+i*370,21530+i*370).toFixed(3)));
+  const closing=document.querySelector('.outro');
+  [['.outro-head',22850,23000],['.outro-stat',22900,23100],['.outro-main h1',23000,23270],['.outro-cta',23400,23600]].forEach(([selector,a,b])=>{const el=closing.querySelector(selector),q=ramp(t,a,b);el.style.opacity=q.toFixed(3);el.style.translate=`0 ${((1-q)*20).toFixed(1)}px`});
+  $('skill-count').textContent=Math.round(500*ramp(t,22900,23200));
+  closing.querySelectorAll('.outro-pillars div').forEach((el,i)=>{const q=ramp(t,23250+i*90,23400+i*90);el.style.opacity=q.toFixed(3);el.style.translate=`0 ${((1-q)*14).toFixed(1)}px`});
+}
+function renderAt(ms){
+  const t=clamp(ms/duration)*duration;
+  document.querySelectorAll('.scene').forEach(s=>{const a=+s.dataset.start,b=+s.dataset.end;const visible=Math.min(ease((t-a)/155),ease((b-t)/175));s.style.opacity=visible.toFixed(4);const p=ease((t-a)/230);s.style.transform=`translateY(${((1-p)*16).toFixed(1)}px)`;s.querySelectorAll('.benchmark-list .item,.route,.figure,.terminal,.access-links span').forEach((el,i)=>{const speed=el.classList.contains('terminal')?150:230,q=ease((t-a-45-i*80)/speed);el.style.opacity=q.toFixed(3);el.style.translate=`0 ${((1-q)*20).toFixed(1)}px`})});
+  const depth=ease((t-5550)/720)*(1-ease((t-22600)/620));$('sphere').style.opacity=(depth*.82).toFixed(3);$('glass').style.opacity=(depth*.76).toFixed(3);
+  $('sphere').style.transform=`translate(${(Math.sin(t/1150)*18).toFixed(1)}px,${(Math.cos(t/1470)*13).toFixed(1)}px)`;
+  $('glass').style.transform=`translate(${(Math.sin(t/1060)*20).toFixed(1)}px,${(Math.cos(t/1380)*16).toFixed(1)}px) rotate(12deg)`;
+  const retreat=ramp(t,4700,6000),gymDim=ease((t-10000)/450)*(1-ease((t-13800)/450)),accessDim=ease((t-17900)/500)*(1-ease((t-22600)/500));
+  $('network').style.filter=`blur(${(retreat*1.35).toFixed(2)}px)`;$('network').style.opacity=(1-.06*retreat-.63*gymDim-.72*accessDim).toFixed(3);
+  if(window.drawDenseNetwork)window.drawDenseNetwork(t);
+  document.querySelectorAll('.formation>.step,.formation>.arrow').forEach((el,i)=>{const q=ease((t-6220-i*205)/240);el.style.opacity=q.toFixed(3);el.style.translate=`${((1-q)*-18).toFixed(1)}px 0`});
+  document.querySelectorAll('.mini-graph .diagram-node').forEach((el,i)=>{el.style.opacity=ease((t-7290-i*115)/210).toFixed(3)});
+  document.querySelectorAll('.mini-graph .diagram-edge').forEach((el,i)=>{el.style.opacity=ease((t-7750-i*140)/240).toFixed(3)});
+  animateGym(t);animateFabric(t);animateTerminal(t);animateEnding(t);$('scrub').value=Math.round(t);$('timecode').textContent=`${(t/1000).toFixed(1).padStart(4,'0')} / 26.0`;return t;
+}
+window.renderAt=renderAt;window.promoInitialFrame=initialFrame;function resize(){const r=$('viewport').getBoundingClientRect();$('stage').style.transform=`scale(${r.width/1600})`}addEventListener('resize',resize);resize();renderAt(initialFrame);
+const music=$('music');let playing=false,frameRequest=0,playRequest=0;
+function stopPlayback(label){playing=false;music.pause();cancelAnimationFrame(frameRequest);$('toggle').textContent=label}
+function tick(){if(!playing)return;const t=Math.min(duration,music.currentTime*1000);renderAt(t);if(music.ended||t>=duration-20){renderAt(duration);stopPlayback('▶ Replay');return}frameRequest=requestAnimationFrame(tick)}
+$('toggle').onclick=async()=>{if(playing){playRequest++;stopPlayback('▶ Resume');return}if(+$('scrub').value>=duration)renderAt(0);const request=++playRequest;music.currentTime=+$('scrub').value/1000;try{await music.play();if(request!==playRequest){music.pause();return}playing=true;$('toggle').textContent='Ⅱ Pause';tick()}catch(error){$('toggle').textContent='Audio unavailable';console.error('Could not play the soundtrack',error)}};
+$('scrub').oninput=e=>{const t=+e.target.value;music.currentTime=t/1000;renderAt(t)};
+music.onended=()=>{renderAt(duration);stopPlayback('▶ Replay')};
+</script><script src="network-v3.js"></script></body></html>

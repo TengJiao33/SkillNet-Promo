@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkillNet storyboard</title>
+<style>
+:root{font-family:Arial,Helvetica,sans-serif;color:#1a2a36;background:#eef3f0}*{box-sizing:border-box}body{margin:0;min-height:100vh}header{height:76px;background:#fff;border-bottom:1px solid #dce9e1;display:flex;align-items:center;justify-content:space-between;padding:0 27px}header strong{font-size:24px;letter-spacing:-.03em}header span{color:#5c7166;font-size:14px}.layout{display:grid;grid-template-columns:268px minmax(0,1fr);height:calc(100vh - 76px)}aside{overflow:auto;background:#f8fbf9;border-right:1px solid #dce9e1;padding:13px}.shot{display:flex;width:100%;gap:11px;align-items:center;text-align:left;border:1px solid transparent;border-radius:12px;background:transparent;padding:9px;margin:0 0 6px;cursor:pointer;color:#243b30;font:inherit}.shot:hover{background:#ecf6ef}.shot.active{background:#e4f4e9;border-color:#92cfaa}.shot img{width:93px;height:52px;object-fit:cover;border:1px solid #d5e5d9;border-radius:5px;background:#fff}.shot b{display:block;font-size:14px}.shot small{display:block;color:#617668;margin-top:5px;font-size:12px}main{min-width:0;padding:26px 35px 20px;overflow:auto}.toolbar{max-width:1280px;margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;gap:15px}.toolbar h1{font-size:23px;margin:0;letter-spacing:-.03em}.toolbar p{font-size:13px;color:#688072;margin:4px 0 0}.actions{display:flex;gap:8px;align-items:center}.actions button,.actions a{border:1px solid #a8d8b8;background:#fff;color:#08704d;border-radius:7px;padding:9px 12px;text-decoration:none;cursor:pointer;font:14px Arial}.actions button:hover,.actions a:hover{background:#eaf8ef}.frame{max-width:1280px;margin:auto;aspect-ratio:16/9;background:#fff;box-shadow:0 16px 50px #124a2b21;border:1px solid #d6e6dc}.frame iframe{width:100%;height:100%;border:0;display:block}.below{max-width:1280px;margin:15px auto 0;display:flex;align-items:center;justify-content:space-between;color:#5a7163;font-size:13px}.below a{color:#087553;text-decoration:none}.below a:hover{text-decoration:underline}@media(max-width:900px){header{height:62px;padding:0 14px}.layout{grid-template-columns:1fr;height:auto}aside{display:flex;overflow:auto;border-right:0;border-bottom:1px solid #dce9e1;padding:8px}.shot{min-width:150px;flex-direction:column;align-items:flex-start}.shot img{width:120px;height:68px}main{padding:16px}.toolbar{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><strong>SkillNet storyboard</strong><span>8 review frames · 16:9 · English on screen</span></header>
+<div class="layout"><aside id="shots" aria-label="Frames"></aside><main>
+  <div class="toolbar"><div><h1 id="title"></h1><p id="time"></p></div><div class="actions"><button id="prev" type="button">← Previous</button><button id="next" type="button">Next →</button></div></div>
+  <div class="frame"><iframe id="preview" title="Static SkillNet frame"></iframe></div>
+  <div class="below"><span>Edit the current frame in <a href="film.html" id="source">film.html</a>; refresh this page to see the change.</span><a id="standalone" href="#" target="_blank" rel="noopener">Open this frame alone ↗</a></div>
+</main></div>
+<script id="shot-data" type="application/json">[
+  {"id":"01","ms":1100,"title":"Opening logo and URL","range":"0–2 s"},
+  {"id":"02","ms":4600,"title":"Skills form a network","range":"2–6.2 s · animation beat"},
+  {"id":"03","ms":8500,"title":"SkillNet: create, evaluate, connect","range":"6.2–10.2 s"},
+  {"id":"04","ms":12500,"title":"Gym: executable benchmarks","range":"10–14.2 s"},
+  {"id":"05","ms":16500,"title":"Fabric: task-specific Wiki","range":"14–18.2 s"},
+  {"id":"06","ms":22500,"title":"Open-source CLI","range":"18–23 s"},
+  {"id":"07","ms":23800,"title":"Ecosystem scale and resources","range":"22.8–24.5 s"},
+  {"id":"08","ms":25300,"title":"Closing brand frame","range":"24.3–26 s"}
+]</script>
+<script>
+const shots=JSON.parse(document.getElementById('shot-data').textContent),list=document.getElementById('shots');
+let active=0;
+shots.forEach((shot,i)=>{const button=document.createElement('button');button.className='shot';button.type='button';button.innerHTML=`<span><b>${shot.id} · ${shot.title}</b><small>${shot.range}</small></span>`;button.onclick=()=>select(i);list.appendChild(button)});
+function select(i){active=Math.max(0,Math.min(shots.length-1,i));const s=shots[active],url=`film.html?still=1&frame=${s.ms}`;
+  document.getElementById('preview').src=url;document.getElementById('title').textContent=`${s.id} · ${s.title}`;document.getElementById('time').textContent=`Frame at ${(s.ms/1000).toFixed(1)} s · ${s.range}`;
+  document.getElementById('standalone').href=url;
+  [...list.children].forEach((b,n)=>b.classList.toggle('active',n===active));list.children[active].scrollIntoView({block:'nearest'});location.hash=`frame-${s.id}`;}
+document.getElementById('prev').onclick=()=>select(active-1);document.getElementById('next').onclick=()=>select(active+1);
+addEventListener('keydown',e=>{if(e.key==='ArrowLeft')select(active-1);if(e.key==='ArrowRight')select(active+1)});
+const match=location.hash.match(/frame-(\d+)/);select(match?Math.max(0,shots.findIndex(s=>s.id===match[1])):0);
+</script>
+</body></html>
